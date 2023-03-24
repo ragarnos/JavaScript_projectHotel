@@ -1,4 +1,4 @@
-import * as array from "./variables.js";
+import * as offer from "./variables.js";
 import * as func from "./util.js"
 
 
@@ -6,25 +6,28 @@ function generationOffer(index){
     return {  
         id: index + 1,
         author: {
-            avatar: `img/avatars/user0${func.getRandomInt(array.avatarCount.min, array.avatarCount.max)}.png`
+            avatar: `img/avatars/user0${func.getRandomInt(offer.avatarCount.min, offer.avatarCount.max)}.png`
         },
         hotelOffer: {
-            title: array.TitleHotel[func.getRandomInt(0, array.TitleHotel.length - 1)],
-            description: array.description[func.getRandomInt(0, array.description.length - 1)],
-            photos: func.randomUniqueArray(array.photos),
-            address: `${func.getRandomFloat(array.locationX.min, array.locationX.max)}, ${func.getRandomFloat(array.locationY.min, array.locationY.max)}`,
-            price: func.getRandomInt(array.PriceCount.min, array.PriceCount.max),
-            type: array.type[func.getRandomInt(0, array.type.length - 1)],
-            rooms: func.getRandomInt(array.roomsCount.min, array.roomsCount.max),
-            guests: func.getRandomInt(array.guestsCount.min, array.guestsCount.max),
-            checkin: array.checkin[func.getRandomInt(0, array.checkin.length - 1)],
-            checkout: array.checkout[func.getRandomInt(0, array.checkout.length - 1)],
-            Features: func.randomUniqueArray(array.Features),
+            title: offer.TitleHotel[func.getRandomInt(0, offer.TitleHotel.length - 1)],
+            description: offer.description[func.getRandomInt(0, offer.description.length - 1)],
+            photos: func.randomUniqueArray(offer.photos),
+            address: `${func.getRandomFloat(offer.locationX.min, offer.locationX.max)}, ${func.getRandomFloat(offer.locationY.min, offer.locationY.max)}`,
+            price: func.getRandomInt(offer.PriceCount.min, offer.PriceCount.max),
+            type: offer.type[func.getRandomInt(0, offer.type.length - 1)],
+            rooms: func.getRandomInt(offer.roomsCount.min, offer.roomsCount.max),
+            guests: func.getRandomInt(offer.guestsCount.min, offer.guestsCount.max),
+            checkin: offer.checkin[func.getRandomInt(0, offer.checkin.length - 1)],
+            checkout: offer.checkout[func.getRandomInt(0, offer.checkout.length - 1)],
+            Features: func.randomUniqueArray(offer.Features),
             location: {
-                x: func.getRandomFloat(array.locationX.min, array.locationX.max),
-                y: func.getRandomFloat(array.locationY.min, array.locationY.max)
+                x: func.getRandomFloat(offer.locationX.min, offer.locationX.max),
+                y: func.getRandomFloat(offer.locationY.min, offer.locationY.max)
             }
         }
     }
 }
-export const HotelDataArray = new Array(array.CountHotel).fill(null).map((e, index) => generationOffer(index));
+export const HotelDataOffer = new Array(offer.CountHotel).fill(null).map((e, index) => generationOffer(index));
+
+
+
