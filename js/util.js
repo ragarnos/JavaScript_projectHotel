@@ -1,6 +1,4 @@
 
-
-
 export function randomUniqueArray(array){
     const lengthArray = array.length;
     const randomUniqueArray = randomUnique(lengthArray , getRandomInt(1, lengthArray + 1));

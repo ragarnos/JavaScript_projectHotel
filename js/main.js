@@ -1,3 +1,3 @@
-import {HotelDataArray} from './data.js';
+import {CloneCardHotel} from './generationTemplate.js';
 
-console.log(HotelDataArray);
+CloneCardHotel();
