@@ -1,6 +1,6 @@
 import {HotelDataOffer} from './data.js';
 const cardHotel = document.querySelector("#card");
-const canvasMap = document.querySelector("#map-canvas");
+// const canvasMap = document.querySelector("#map-canvas");
 
 
 const cloneTemplate = cardHotel.content.cloneNode(true);
@@ -68,6 +68,6 @@ export function CloneCardHotel(){
 
         return hotelData;
     });
-    canvasMap.appendChild(hotelData)
+    // canvasMap.appendChild(hotelData)
 
 }

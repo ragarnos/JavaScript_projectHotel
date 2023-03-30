@@ -40,9 +40,8 @@ function GuestSwich(e) {
         }
 }
 function TypePriceSwich(e) {
-   const newPrice = typePriceValid[e.target.value];
-   formPrice.placeholder = newPrice;
-   formPrice.value = newPrice;
+   const PriceHolder = typePriceValid[e.target.value];
+   formPrice.placeholder = PriceHolder;
 }
 function TimeCheckInOrCheckout(time) {
     formCheckout.value = time.target.value;
