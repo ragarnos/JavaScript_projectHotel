@@ -2,7 +2,7 @@ import * as offer from "./variables.js";
 import * as func from "./util.js"
 
 
-function generationOffer(index){
+export function generationOffer(index){
     return {  
         id: index + 1,
         author: {

@@ -1,8 +1,8 @@
-export const CountHotel = 10;
 
+export const CountHotel = 10;
 export const PriceCount = {
-    min: 12,
-    max: 1200
+    min: 0,
+    max: 13000
 }
 export const avatarCount = {
     min: 1,
@@ -19,11 +19,12 @@ export const locationY = {
 
 export const roomsCount = {
     min: 1,
-    max: 3
+    max: 3,
+    full: 100
 }
 export const guestsCount = {
     min: 1,
-    max: 5
+    max: 3
 }
 export const TitleHotel = [
     'San Pietro Grand Suite',
@@ -72,3 +73,17 @@ export const photos = [
     'http://o0.github.io/assets/images/tokyo/hotel2.jpg', 
     'http://o0.github.io/assets/images/tokyo/hotel3.jpg'
 ]
+
+export const roomValid = {
+    1:[1],
+    2:[2,1],
+    3:[3,2,1],
+    100:[0]
+}
+export const typePriceValid = {
+    bungalow: 0,
+    flat: 1000,
+    house: 5000,
+    palace: 10000
+}
+    

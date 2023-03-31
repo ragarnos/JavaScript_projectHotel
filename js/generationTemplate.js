@@ -69,5 +69,5 @@ export function CloneCardHotel(){
         return hotelData;
     });
     canvasMap.appendChild(hotelData)
-    // console.log(hotelData);
+
 }
