@@ -1,4 +1,4 @@
-import {roomValid,typePriceValid} from "./variables.js";
+import  * as variable from "./variables.js";
 
 
 const formTitle = document.querySelector("#title");
@@ -8,7 +8,8 @@ const formRooms = document.querySelector("#room_number");
 const formGuest = document.querySelector("#capacity");
 const formCheckin = document.querySelector("#timein");
 const formCheckout = document.querySelector("#timeout");
-const submitBtn = document.querySelector(".ad-form__submit")
+const formDescription = document.querySelector("#description");
+const submitBtn = document.querySelector(".ad-form__submit");
 
 
 
@@ -25,7 +26,7 @@ function defaultGuest(){
 }
 
 function roomSwich(e){
-    const roomValue = roomValid[e.target.value];
+    const roomValue = variable.roomValid[e.target.value];
     defaultGuest();
     roomValue.forEach(element => {
             formGuest.querySelector(`option[value="${element}"]`).disabled = false;
@@ -40,7 +41,7 @@ function GuestSwich(e) {
         }
 }
 function TypePriceSwich(e) {
-   const PriceHolder = typePriceValid[e.target.value];
+   const PriceHolder = variable.typePriceValid[e.target.value];
    formPrice.placeholder = PriceHolder;
 }
 function TimeCheckInOrCheckout(time) {
@@ -48,7 +49,7 @@ function TimeCheckInOrCheckout(time) {
     formCheckin.value = time.target.value;
 }
 formPrice.addEventListener('input', (e) => {
-    if(e.target.value < typePriceValid[formType.value]){
+    if(e.target.value < variable.typePriceValid[formType.value]){
         formPrice.setCustomValidity('Вы указали сумму ниже минимальной!');
     }else{
         formPrice.setCustomValidity("");
@@ -56,9 +57,22 @@ formPrice.addEventListener('input', (e) => {
     formPrice.reportValidity();
 })
 
-
-
-
+formTitle.addEventListener('input', (e) => {
+    if(e.target.value.length < variable.maxLenghTitle){
+        formTitle.setCustomValidity(`Заголовок должен иметь минимум ${variable.maxLenghTitle} символа!`);
+    }else{
+        formTitle.setCustomValidity("");
+    }
+    formTitle.reportValidity();
+})
+formDescription.addEventListener('input', (e) => {
+    if(e.target.value.length < variable.maxLenghDesc){
+        formDescription.setCustomValidity(`Описание должен иметь минимум ${variable.maxLenghDesc} символа!`);
+    }else{
+        formDescription.setCustomValidity("");
+    }
+    formDescription.reportValidity();
+})
 formGuest.addEventListener('change', (e) => {
     GuestSwich(e);
 })
@@ -80,6 +94,7 @@ formCheckout.addEventListener('change', (e) => {
 function validationFrom(){
     if (formPrice.value === "" || formTitle === "") {
         console.log("Недостаточно данных");
+        
     } else if (formGuest.value == "0" && formRooms.value !== "100") {
         console.log("Неправильный тип квартиры для такого количества людей");
     }else if (formGuest.value > formRooms.value){
@@ -89,7 +104,8 @@ function validationFrom(){
     }
 }
 
-submitBtn.addEventListener('click', (btn) => {
-    validationFrom();
-});
+
+// submitBtn.addEventListener('click', (btn) => {
+//     validationFrom();
+// });
 

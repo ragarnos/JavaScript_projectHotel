@@ -1,6 +1,4 @@
-import {HotelDataOffer} from './data.js';
 const cardHotel = document.querySelector("#card");
-// const canvasMap = document.querySelector("#map-canvas");
 
 
 const cloneTemplate = cardHotel.content.cloneNode(true);
@@ -49,9 +47,7 @@ function photoArray(photo){
 }
 
 
-export function CloneCardHotel(){
-    HotelDataOffer.forEach((HotelDataOffers) => {
-        
+export function CloneCardHotel(HotelDataOffers){   
         titleClone.innerText = HotelDataOffers.hotelOffer.title;
         descriptionClone.innerText = HotelDataOffers.hotelOffer.description;
         avatarClone.src = HotelDataOffers.author.avatar;
@@ -64,10 +60,5 @@ export function CloneCardHotel(){
         featuresClone.replaceChildren(featuresArray);
         const photosArray = photoArray(HotelDataOffers.hotelOffer.photos);
         photosClone.replaceChildren(photosArray)
-        hotelData.appendChild(cloneTemplate);
-
-        return hotelData;
-    });
-    // canvasMap.appendChild(hotelData)
-
+        return cloneTemplate.cloneNode(true);
 }
