@@ -1,5 +1,7 @@
 
 export const CountHotel = 10;
+export const maxLenghTitle = 5;
+export const maxLenghDesc = 15;
 export const PriceCount = {
     min: 0,
     max: 13000
@@ -86,4 +88,3 @@ export const typePriceValid = {
     house: 5000,
     palace: 10000
 }
-    
