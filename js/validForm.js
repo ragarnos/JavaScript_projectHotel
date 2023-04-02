@@ -1,5 +1,5 @@
 import  * as variable from "./variables.js";
-
+import {sendForm} from "./ajaxForm.js"
 
 const formTitle = document.querySelector("#title");
 const formType = document.querySelector("#type");
@@ -9,8 +9,8 @@ const formGuest = document.querySelector("#capacity");
 const formCheckin = document.querySelector("#timein");
 const formCheckout = document.querySelector("#timeout");
 const formDescription = document.querySelector("#description");
+const form = document.querySelector(".ad-form");
 const submitBtn = document.querySelector(".ad-form__submit");
-
 
 
 function defaultGuest(){
@@ -104,8 +104,8 @@ function validationFrom(){
     }
 }
 
-
-// submitBtn.addEventListener('click', (btn) => {
-//     validationFrom();
+sendForm(form);
+// submitBtn.addEventListener('submit', (btn) => {
+    validationFrom();
+    
 // });
-

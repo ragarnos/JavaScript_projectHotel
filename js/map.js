@@ -1,5 +1,5 @@
 
-import {HotelDataOffer} from './data.js';
+import {HotelDataOffer} from './ajaxForm.js';
 import {CloneCardHotel} from './generationTemplate.js';
 const addresInput = document.getElementById("address");
 const map = L.map('map-canvas').setView([35.67267785620779, 139.7518429874794,], 13);
@@ -30,9 +30,11 @@ function mapCanvas(){
     addresInput.setAttribute('readonly', true);
 
 }
-function generateMarkerCard(){
+function generateMarkerCard(HotelDataOffer){
+
     for (let i = 1; i < HotelDataOffer.length; i++) {
-        const marker = new L.marker([HotelDataOffer[i].hotelOffer.location.x, HotelDataOffer[i].hotelOffer.location.y])
+        console.log(HotelDataOffer[i]);
+        new L.marker([HotelDataOffer[i].hotelOffer.location.x, HotelDataOffer[i].hotelOffer.location.y])
         .bindPopup(CloneCardHotel(HotelDataOffer[i]))
         .on("click", function(e){
              e.target.bindPopup(CloneCardHotel(HotelDataOffer[i]));
@@ -50,6 +52,6 @@ function pageIsLoadedmap(bool) {
 }
 
 mapCanvas();
-generateMarkerCard();
+generateMarkerCard(HotelDataOffer);
 
 map.on('load',pageIsLoadedmap(false));
