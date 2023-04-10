@@ -32,8 +32,8 @@ function mapCanvas(){
 }
 function generateMarkerCard(HotelDataOffer){
 
-    for (let i = 1; i < HotelDataOffer.length; i++) {
-        console.log(HotelDataOffer[i]);
+    for (let i = 0; i < HotelDataOffer.length; i++) {
+        // console.log(HotelDataOffer[i]);
         new L.marker([HotelDataOffer[i].hotelOffer.location.x, HotelDataOffer[i].hotelOffer.location.y])
         .bindPopup(CloneCardHotel(HotelDataOffer[i]))
         .on("click", function(e){
@@ -50,7 +50,7 @@ function pageIsLoadedmap(bool) {
     }
     
 }
-
+// console.log(HotelDataOffer);
 mapCanvas();
 generateMarkerCard(HotelDataOffer);
 

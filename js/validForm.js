@@ -10,6 +10,8 @@ const formCheckin = document.querySelector("#timein");
 const formCheckout = document.querySelector("#timeout");
 const formDescription = document.querySelector("#description");
 const form = document.querySelector(".ad-form");
+const formAvatar = form.querySelector('.ad-form-header__preview').children[0]
+const formPhotos = form.querySelector('.ad-form__photo').children[0]
 const submitBtn = document.querySelector(".ad-form__submit");
 
 
@@ -89,7 +91,34 @@ formCheckin.addEventListener('change', (e) => {
 formCheckout.addEventListener('change', (e) => {
     TimeCheckInOrCheckout(e);
 })
-
+form.querySelector('#avatar').addEventListener('input', (e) => {
+    console.log(e.target.files[0]);
+        if (e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onloadend = function () {
+                    formAvatar.src = reader.result;
+                }
+                if (e.target.files[0]) {
+                    reader.readAsDataURL(e.target.files[0]);
+                } else {
+                    formAvatar.src = "";
+                }
+        }
+})
+form.querySelector('#images').addEventListener('input', (e) => {
+    console.log(e.target.files[0]);
+        if (e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onloadend = function () {
+                    formPhotos.src = reader.result;
+                }
+                if (e.target.files[0]) {
+                    reader.readAsDataURL(e.target.files[0]);
+                } else {
+                    formPhotos.src = "";
+                }
+        }
+})
 
 function validationFrom(){
     if (formPrice.value === "" || formTitle === "") {

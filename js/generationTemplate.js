@@ -48,6 +48,7 @@ function photoArray(photo){
 
 
 export function CloneCardHotel(HotelDataOffers){   
+    console.log(HotelDataOffers);
         titleClone.innerText = HotelDataOffers.hotelOffer.title;
         descriptionClone.innerText = HotelDataOffers.hotelOffer.description;
         avatarClone.src = HotelDataOffers.author.avatar;
@@ -55,7 +56,7 @@ export function CloneCardHotel(HotelDataOffers){
         typeClone.innerText = switchType(HotelDataOffers.hotelOffer.type);
         priceClone.innerHTML = HotelDataOffers.hotelOffer.price+" <span>грн/ніч</span>";
         roomsGuestClone.innerText = `${HotelDataOffers.hotelOffer.rooms} кімнати для ${HotelDataOffers.hotelOffer.guests} гостей`;
-        InOutTimeClone.innerText = `Заїзд після ${HotelDataOffers.hotelOffer.checkin}, виїзд до ${HotelDataOffers.hotelOffer.guests}`;
+        InOutTimeClone.innerText = `Заїзд після ${HotelDataOffers.hotelOffer.checkin}, виїзд до ${HotelDataOffers.hotelOffer.checkout}`;
         const featuresArray = FeaturesArray(HotelDataOffers.hotelOffer.Features);
         featuresClone.replaceChildren(featuresArray);
         const photosArray = photoArray(HotelDataOffers.hotelOffer.photos);
