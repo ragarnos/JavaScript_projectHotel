@@ -1,6 +1,6 @@
-
-import {HotelDataOffer} from './ajaxForm.js';
+import {HotelDataOffer} from "./ajaxForm.js"
 import {CloneCardHotel} from './generationTemplate.js';
+
 const addresInput = document.getElementById("address");
 const map = L.map('map-canvas').setView([35.67267785620779, 139.7518429874794,], 13);
 const mapFilter = document.querySelector('.map__filters') ;
@@ -30,16 +30,22 @@ function mapCanvas(){
     addresInput.setAttribute('readonly', true);
 
 }
-function generateMarkerCard(HotelDataOffer){
+let BlueMarker =[];
+export function generateMarkerCard(defaultHotels){
 
-    for (let i = 0; i < HotelDataOffer.length; i++) {
-        // console.log(HotelDataOffer[i]);
-        new L.marker([HotelDataOffer[i].hotelOffer.location.x, HotelDataOffer[i].hotelOffer.location.y])
-        .bindPopup(CloneCardHotel(HotelDataOffer[i]))
+    for (let i = 0; i < defaultHotels.length; i++) {
+        BlueMarker.push(new L.marker([defaultHotels[i].hotelOffer.location.x, defaultHotels[i].hotelOffer.location.y])
+        .bindPopup(CloneCardHotel(defaultHotels[i]))
         .on("click", function(e){
-             e.target.bindPopup(CloneCardHotel(HotelDataOffer[i]));
-        }).addTo(map);
+             e.target.bindPopup(CloneCardHotel(defaultHotels[i]));
+        }).addTo(map)); 
     }
+    
+}
+export function deleteMarker(){
+    for(let i = 0; i < BlueMarker.length; i++) {
+        map.removeLayer(BlueMarker[i])
+    }  
 }
 function pageIsLoadedmap(bool) {
     for (let i = 0; i < form.elements.length; i++) {
@@ -50,7 +56,6 @@ function pageIsLoadedmap(bool) {
     }
     
 }
-// console.log(HotelDataOffer);
 mapCanvas();
 generateMarkerCard(HotelDataOffer);
 

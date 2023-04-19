@@ -88,3 +88,31 @@ export const typePriceValid = {
     house: 5000,
     palace: 10000
 }
+export const FilterVar = {
+    price:{
+        any: 0,
+        middle: {
+            min: 10000,
+            max: 50000,
+            },
+        low: {
+            min: 0,
+            max: 10000,
+            },
+        high: {
+            min: 50000,
+            max: Infinity,
+            }
+    },
+    type:{
+        any:['Палац','Квартира','Дім','Бунгало'],
+        palace: 'Палац',
+        flat: 'Квартира',
+        house: 'Дім',
+        bungalow: 'Бунгало'
+    },
+    
+
+
+   
+}

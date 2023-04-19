@@ -48,7 +48,6 @@ function photoArray(photo){
 
 
 export function CloneCardHotel(HotelDataOffers){   
-    console.log(HotelDataOffers);
         titleClone.innerText = HotelDataOffers.hotelOffer.title;
         descriptionClone.innerText = HotelDataOffers.hotelOffer.description;
         avatarClone.src = HotelDataOffers.author.avatar;
